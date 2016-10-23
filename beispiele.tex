@@ -1,0 +1,94 @@
+Die Programmausgabe lautet:
+
+\shellcmd{java -jar Sprichwort.jar}
+\shellout{Kath./Ev. Ostern und Orth. Weihnachten finden am folgendem Datum gleichzeitig statt: 23.3.11919 \\
+Kath./Ev. Weihnachten und Orth. Ostern finden am folgendem Datum gleichzeitig statt: 25.12.32839}
+
+Die Ausgaben habe ich dann noch manuell überprüft:
+
+	\subsection{Kath./Ev. Ostern und Orth. Weihnachten}
+		Die Lösung 23 März 11919\textsuperscript{gre}/25. Dez. 11918\textsuperscript{jul} ist eine korrekte Lösung, weil:
+		\subsubsection{Kath./Ev. Ostern 11919}
+			Nach der Gaußschen Osterformel von 1816.
+
+			\begin{math}
+			j = 11919													\\
+			a = j \bmod 19 = 6											\\
+			b = j \bmod 4 = 3											\\
+			c = j \bmod 7 = 3											\\
+			k = j \div 100 = 119										\\
+			p = (8 \times k + 13) \div 25 = 38							\\
+			q = k \div 4 = 29											\\
+			M = (15 + k - p -q) \bmod 30 = 7							\\
+			d = (19 \times a + M) \bmod 30 = 1							\\
+			N = (4 + k - q) \bmod 7 = 3									\\
+			e = (2 \times b + 4 \times c + 6 \times d + N) \bmod 7 = 0	\\
+			O = 22 + d + e = 23 \text{.März}						
+			\end{math}
+
+			Ostern fällt 11919 auf den 23 März\textsuperscript{gre}!
+		\clearpage
+		\subsubsection{Orthodoxes Weihnachtsdatum 11918}
+			Orthodoxes Weihnachtsdatum: 25. Dez. 11918\textsuperscript{jul}. Umrechnung in den gregorianischen Kalender:
+
+			\begin{math}
+			JH = 119						\\
+			a = JH \div 4 = 29				\\
+			b = JH \bmod 4 = 3				\\
+			TD = 3 \times a + b - 2 = 88 	\\
+			\end{math}
+
+			Vom 25. Dez. 11918 bis zum 1. Jan 11919 sind es 6 Tage, es verbleiben 82 Tage.
+
+			\begin{tabular}{ll}
+			Jan 11919: -31                    & R: 51 \\
+			Feb 11919: -28 (kein Schaltjahr!) & R: 23
+			\end{tabular}
+
+			23 Tage Rest, also liegt der 25. Dez. 11918\textsuperscript{jul} auf dem 23 Mär. 11919\textsuperscript{gre}!
+	\clearpage
+	\subsection{Kath./Ev. Weihnachten und Orthodoxe Ostern}
+		Die Lösung 25. Dez. 32839\textsuperscript{gre}/25. Apr. 32839\textsuperscript{jul} ist eine korrekte Lösung, weil:
+		\subsubsection{Kath./Ev. Weihnachtsfest 32839}
+			32839 findet Weihnachten natürlich am 25. Dez. 32839\textsuperscript{gre} statt.
+
+		\subsubsection{Orth. Ostern 32839}
+			Nach der Gaußschen Osterformel von 1816
+
+			\begin{math}
+			j = 32839														\\	
+			a = j \bmod 19 = 7												\\	
+			b = j \bmod 4 = 3												\\
+			c = j \bmod 7 = 3												\\
+			k = j \div 100 = 328											\\
+			M = (15 + k - p - q) \bmod 30 = 15								\\
+			d = (19 \times a + M) \bmod 30 = 28								\\
+			N = (4 + k - q) \bmod 7 = 6										\\
+			e = (2 \times b + 4 \times c + 6 \times d + N) \bmod 7 = 6		\\
+			O = 22 + d + e = 56\text{.März } \widehat{=} \text{ } 25\text{.Apr}
+			\end{math}
+
+			Osterdatum : 25. Apr. 32839\textsuperscript{jul}
+
+			Umrechnung in den Gregorianischen Kalender:
+
+			\begin{math}
+			JH = 328						\\
+			a = JH \div 4 = 82				\\
+			b = JH \bmod 4 = 0				\\
+			TD = 3 \times a + b - 2 = 244 	\\
+			\end{math}
+
+			Vom 25. Apr. 32839 bis zum 1. Mai sind es 5 Tage, es verbleiben 239 Tage:
+
+			\begin{tabular}{ll}
+				Mai 32839: -31 & R: 208 \\
+				Jun 32839: -30 & R: 178 \\
+				Jul 32839: -31 & R: 147 \\
+				Aug 32839: -31 & R: 116 \\
+				Sep 32839: -30 & R: 86  \\
+				Okt 32839: -31 & R: 55  \\
+				Nov 32839: -30 & R: 25 
+			\end{tabular}
+
+			25 Tage Rest, also liegt der 25. Apr. 32839\textsuperscript{jul} auf dem 25. Dez. 32839\textsuperscript{gre}

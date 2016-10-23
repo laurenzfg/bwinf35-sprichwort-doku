@@ -1,0 +1,75 @@
+\documentclass[parskip=full, DIV=14]{scrartcl}
+
+\usepackage[T1]{fontenc}
+\usepackage{selinput}% Eingabecodierung automatisch ermitteln siehe <http://ctan.org/pkg/selinput>
+\SelectInputMappings{
+	adieresis={ä},
+	germandbls={ß},
+} 
+\usepackage{ngerman}
+
+\usepackage{amsmath}
+
+\usepackage{graphicx}
+\graphicspath{{Bilder/}}
+
+\usepackage{listings}
+\usepackage[dvipsnames]{xcolor}
+
+\lstset{language={Java},
+        numbers=left,
+        stepnumber=1,
+        numbersep=5pt,
+        numberstyle=\tiny,
+        breaklines=true,
+        breakautoindent=true,
+        postbreak=\space,
+        tabsize=2,
+        basicstyle=\ttfamily\footnotesize,
+        showspaces=false,
+        showstringspaces=false,
+        extendedchars=true,
+        commentstyle=\color{Gray}, % comment color
+    	keywordstyle=\color{Bittersweet}, % keyword color
+    	stringstyle=\color{red}, % string color
+        % Sorgt dafür, dass das Paket listings auch mit den Sonderzeichen in UTF-8 zurecht kommt.
+				literate=
+					{Ö}{{\"O}}1
+					{Ä}{{\"A}}1
+					{Ü}{{\"U}}1
+					{ß}{{\ss}}2
+					{ü}{{\"u}}1
+					{ä}{{\"a}}1
+					{ö}{{\"o}}1
+        }
+
+
+\usepackage[hidelinks]{hyperref}
+
+\newcommand{\shellcmd}[1]{\texttt{\$ #1}\\}
+\newcommand{\shellout}[1]{\texttt{#1}\\}
+
+\begin{document}
+	\titlehead{35. Bundeswettbewerb Informatik \hfill Team 00001, Teilnahme 6745}
+	\title{Sprichwort}
+	\subtitle{Aufgabe 1}
+	\author{Laurenz Grote}
+	\date{}
+	\maketitle
+	\tableofcontents
+	
+	\vspace {3em}
+	Meine Umsetzung für "`Rhinozelfant"' erfolgte unter Arch Linux mit Java 1.8. Der Programmcode liegt sowohl als ausführbare JAR-Datei als auch als Quellcode vor.
+	\clearpage
+	% ----------------------------------------------------------------------------
+	\section{Lösungsidee}
+		\input{loesungsidee.tex}
+	\clearpage
+	\section{Umsetzung}
+		\input{umsetzung.tex}
+	\clearpage
+	\section{Beispiel}
+		\input{beispiele.tex}
+	\section{Überlegungen zur Laufzeit}
+		\input{laufzeit.tex}
+\end{document}
