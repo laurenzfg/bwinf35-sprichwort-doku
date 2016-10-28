@@ -21,3 +21,11 @@
 
 	Das zweite Problem lässt sich dementsprechend finden, indem man alle orthodoxen Osterfeste berechnet, bis das Ergebnis dem 25. Dezember des gregorianischen Kalenders entspricht.
 
+\subsection {Überlegungen zur Laufzeit}
+Die Programmlaufzeit steigt mit der Entfernung zwischen Startjahr der Berechnung und dem Ergebnisjahr in linear. Die Berechnung des Osterdatums, die für jedes Jahr durchgeführt wird hat einen konstante Laufzeit. Die Laufzeit der Umrechnung steigt ca. alle 3000 Jahre, da wenn der Unterschied zwischen den Kalendersystemen um einen Monat gestiegen ist ein weiterer Schleifendurchlauf nötig wird. Da dieser Zuwachs jedoch mininaml ist, kann dies vernachlässigt werden.
+
+Die Laufzeit ist also, wenn n die Differenz zwischen Startjahr und Eregbnisjahr darstellt:
+
+\[\mathcal O(n)\]
+
+Daraus folgt, dass die erste Teilaufgabe dreimal so schnell ist wie die zweite.
