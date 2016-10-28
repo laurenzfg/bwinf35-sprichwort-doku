@@ -6,41 +6,34 @@ Zunächst müssen die Daten in Java durch eine Datenstruktur abgebildet waren. I
 	\caption{UML-Diagramm der Implementation}
 \end{figure}
 
-Um beide Aufgabenstellungen bearbeiten zu können, muss nun für beide Kalnendersysteme getrennt die Osterformel implementiert werden. Da die Ausgabe im gregorianischen Kalendersystem gefordert wird und Daten verglichen werden müssen, müssen Daten aus dem julianischen Kalender in den gregorianischen Kalender umgerechnet werden können. Dazu gibt es in der gregorianischen Klasse einen überladenen Konstruktor, der ein julianisches Datum entgegennimmt und entsprechend umrechnet.
+Um beide Aufgabenstellungen bearbeiten zu können, muss nun für beide Kalnendersysteme getrennt die Osterformel implementiert werden. Da die Ausgabe im gregorianischen Kalendersystem gefordert wird und Daten verglichen werden, müssen Daten aus dem julianischen Kalender in den gregorianischen Kalender umgerechnet werden können. Dazu gibt es in der gregorianischen Klasse einen überladenen Konstruktor, der ein julianisches Datum entgegennimmt und wie im folgenden Kapitel beschrieben umrechnet.
 
+\subsection{Suchcode}
+Die Suche vergleicht mittels einer Schleife solange Oster- und Weihnachtsdaten, bis diese sich gleichen.
 \clearpage
 \subsection{Implementierungen der beiden Kalendersysteme}
 	\subsubsection{Implementierung des julianischen Datums}
-	Für die Umsetzung des julianischen Datums habe ich das obengenannte Schaltjahrkriterium folgendermaßen nach Java übersetzt:
-	\lstinputlisting[firstline=9,lastline=11]{code/datum/JulianischesDatum.java}
-	
-	Außerdem habe ich die Osterformel von Wikipedia in Java umgesetzt:
-
-	\lstinputlisting[firstline=13,lastline=29]{code/datum/JulianischesDatum.java}
-	
+	Das Schaltjahrkriterium des juliansichen kalenders lässt sich als folgender boolescher Ausdruck formulieren:
+	\begin{lstlisting}
+	return getJahr () % 4 == 0;
+	\end{lstlisting}
 	\subsubsection{Implementierung des gregorianischen Datums}
+	Auch hier habe ich das Schaltjahkriterium als booleschen Ausdruck formuliert:
+	\begin{lstlisting}
+	return ( getJahr () % 4 == 0 && getJahr () % 100 != 0) || ( getJahr () % 400 ==0) ;
+	\end{lstlisting}
+	Außerdem gibt es in dieser Klasse eine Umrechnungsfunktion von dem julianischen in den gregorianischen Kalender. 
 
-	Auch hier habe ich das Schaltjahkriterium folgendermaßen nach Java übersetzt:
-	\lstinputlisting[firstline=14,lastline=16]{code/datum/GregorianischesDatum.java}
-	Ebenso habe ich die für den gregorianischen Kalender angepasste Osterformel umgesetzt.
-	\lstinputlisting[firstline=18,lastline=35]{code/datum/GregorianischesDatum.java}
+	Zunächst wird dabei das julianischem Datum in die entsprechenden Felder übernommen. Danach wird mit der in der Lösungsidee genannten Formel der Abstand zwischen den beiden Kalendersystemen in dem Jahr des Datums berechnet. Dieser Abstand wird dem Tag hinzuaddiert. 
 
-	Außerdem gibt es in dieser Klasse noch die Umrechnungsfunktion von dem julianischen in den gregorianischen Kalender. 
-	Zunächst wird dabei das julianischem Datum übernommen. Danach wird mit der in der Lösungsidee genannten Formel der Abstand zwischen den beiden Kalendersystemen in dem Jahr des Datums berechnet. Dieser Abstand wird dem Tag hinzuaddiert. Danach wird die Funktion korrigiereUeberhang() aufgerufen. Diese korrigiert das Datum falls durch das hinzuaddieren der Tagesdifferenz die Monatsläge überschritten wurde.
+	Danach wird die Funktion korrigiereUeberhang() aufgerufen. Diese ermittelt zünachst die für das Jahr des Datums zutreffenden Monatslängen (Schaltjahr). Falls durch das hinzuaddieren der Tagesdifferenz die Monatsläge überschritten wurde, korrigiert die Funktion das Datum folgenderemaßen:
 
-	Zunächst ermittelt diese Funktion die für das Jahr des Datums zutreffenden Monatslängen (Schaltjahr). Danach wird berechnet, um wie viele Tage das gesetzte Datum die Monatslänge des Datums unter-/überschreitet.
-
-	Wenn die Monatslänge überschritten wird, wird folgendermaßen das Datum korrigiert:
+	Zunächst wird berechnet, um wie viele Tage die Monatslänge überschritten wurde. Im folgenden wird diese Differenz als Überhang bezeichnet.
 
 	Da die Tage die Monatslänge überschritten haben, muss das Datum mindestens im nächsten Monat liegen. Daher wird der Monat des Datums um eins erhöht. Ist der aktuelle Monat ein Dezember, wird dementsprechend das Jahr um 1 erhöht, der Monat auf Januar gesetzt und der Schaltjahresregel entsprechend die für das neue Jahr gültigen Monatslängen gesetzt.
 
-	Unterschreiten oder gleichen die überhängenden Tage die Monatslänge des neuen Monates, ist die Umrechnung beendet. Die noch überhangenden Tage sind dann der Tag des neuen Monates.
+	Unterschreiten oder gleichen die überhängenden Tage die Monatslänge des neuen Monates, ist die Umrechnung beendet. Die noch überhangenden Tage entsprechen dann dem Tag des neuen Monates.
 
-	Überschreiten die überhägenden Tage die Monatslänge des neuen Monates, wird auch dieser Monat, wie zwei Absätze zuvor beschrieben, übersprungen. Die Monatslänge kann von den überhangenden Tagen dann subtrahiert werden.
+	Überschreiten die überhägenden Tage die Monatslänge des neuen Monates, wird auch dieser Monat übersprungen. Außerdem wird der Überhang um die Monatslänge des übersprungenen Monats verringert, da ja der Monat übersprungen wurde.
 
 	Dies wird solange wiederholt, bis das Datum erfolgreich umgerechnet wurde.
-
-	\lstinputlisting[firstline=36,lastline=89]{code/datum/GregorianischesDatum.java}
-\clearpage
-\subsection{Quelltext Suchcode}
-	\lstinputlisting[firstline=14,lastline=39]{code/Main.java}
