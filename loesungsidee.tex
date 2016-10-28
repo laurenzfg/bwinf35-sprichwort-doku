@@ -17,8 +17,7 @@
 
 \clearpage
 \subsection {Lösungsidee}
-	Mit diesen Sachinformationen lässt sich das Problem in recht wenig Zeit mittels Brute Force lösen: Von 2016 an berechnet man alle katholischen Osterfeste und orthodoxen Weihnachtsfeste, bis die Ergebnisse sich gleichen. Eine weitere Optimierung ist nicht möglich, da das Osterdatum unregelmäßig schwankt. Höchstens ist das Caching des orthodoxen Weihnachtsdatums für 100 Jahre möglich. Da also das Überprüfen einer richtigen Lösung sehr schnell geht (es muss nur ein Osterdatum berechnet und umgerechnet werden), das berechnen einer Lösung aber nicht Zeiteffizient möglich ist, ist das Problem \textbf{NP-Vollständig}.
+	Mit diesen Sachinformationen lässt sich das Problem in recht wenig Zeit mithilfe von Brute Force lösen: Von 2016 an berechnet man alle katholischen Osterfeste und orthodoxen Weihnachtsfeste, bis ein Ergebnisse sich gleicht. Die orthodoxen Weihnachtsfeste müssen vorher in den gregorianischen Kalender umgerechnet werden. Des Weiteren muss das katholische Osterfest mit dem orthodoxen Weihnachtsfest des Vorjahres verglichen werden, da das orthodoxe Weihnachtsfest  durch die Kalenderumrechnung in das Folgejahr hineinrutscht.
 
-	Das andere Datum lässt sich dementsprechend finden, indem man alle orthodoxen Osterfeste berechnet, bis das Ergebnis dem 25. Dezember des gregorianischen Kalenders entspricht.
+	Das zweite Problem lässt sich dementsprechend finden, indem man alle orthodoxen Osterfeste berechnet, bis das Ergebnis dem 25. Dezember des gregorianischen Kalenders entspricht.
 
-	JAHRESOFFSETS!
