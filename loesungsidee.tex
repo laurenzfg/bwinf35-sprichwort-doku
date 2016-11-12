@@ -5,7 +5,7 @@
 		\hfill{}--Wikipedia, https://de.wikipedia.org/wiki/Osterdatum
 	\end{quote}
 
-	All diese Bedingungen wurden von Carl Friedrich Gauß in der Gaußschen Osterformel\footnote{\url{https://de.wikipedia.org/wiki/Gau\%C3\%9Fsche_Osterformel}} zusammengefasst. In meinem Programm nutze ich die im Wikipedia-Artikel vorgestellte Fassung von Heiner Lichtenberg.
+	All diese Bedingungen wurden von Carl Friedrich Gauß in der Gaußschen Osterformel\footnote{\url{https://de.wikipedia.org/wiki/Gau\%C3\%9Fsche_Osterformel}} zusammengefasst. In unserem Programm nutzen wir die im Wikipedia-Artikel vorgestellte Fassung von Heiner Lichtenberg.
 \subsection{Unterschied zwischen gregorianischem und julianischem Kalender}
 	Das Weihnachtsfest wird in beiden Religionen am 25. Dezember gefeiert. Die russisch-orthodoxe Kirche hat allerdings die 1852 durchgeführte Kalenderreform durch Papst Gregor nicht angewandt. Der deshalb dort noch genutzte Vorgängerkalender, der julianische Kalender, stimmt allerdings mit dem heutigen Kalender bis auf die Schaltjahresregelung komplett überein.
 
@@ -28,7 +28,7 @@
 	Das zweite Problem lässt sich dementsprechend finden, indem man alle orthodoxen Osterfeste berechnet, bis das Ergebnis dem 25. Dezember des gregorianischen Kalenders entspricht.
 
 \subsection {Überlegungen zur Laufzeit}
-Die Programmlaufzeit steigt mit der Entfernung zwischen Startjahr der Berechnung und dem Ergebnisjahr in linear. Die Berechnung des Osterdatums, die für jedes Jahr durchgeführt wird hat einen konstante Laufzeit. Die Laufzeit der Umrechnung steigt ca. alle 3000 Jahre, da wenn der Unterschied zwischen den Kalendersystemen um einen Monat gestiegen ist ein weiterer Schleifendurchlauf nötig wird. Da dieser Zuwachs jedoch mininaml ist, kann dies vernachlässigt werden.
+Die Programmlaufzeit steigt mit der Entfernung zwischen Startjahr der Berechnung und dem Ergebnisjahr linear. Die Berechnung des Osterdatums, die für jedes Jahr durchgeführt wird hat einen konstante Laufzeit. Die Laufzeit der Umrechnung steigt ca. alle 3000 Jahre, da wenn der Unterschied zwischen den Kalendersystemen um einen Monat gestiegen ist ein weiterer Schleifendurchlauf nötig wird. Da dieser Zuwachs jedoch minimal ist, kann dies vernachlässigt werden.
 
 Die Laufzeit ist also, wenn n die Differenz zwischen Startjahr und Eregbnisjahr darstellt:
 
