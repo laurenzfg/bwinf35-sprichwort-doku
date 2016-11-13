@@ -7,31 +7,31 @@
 
 	All diese Bedingungen wurden von Carl Friedrich Gauß in der Gaußschen Osterformel\footnote{\url{https://de.wikipedia.org/wiki/Gau\%C3\%9Fsche_Osterformel}} zusammengefasst. In unserem Programm nutzen wir die im Wikipedia-Artikel vorgestellte Fassung von Heiner Lichtenberg.
 \subsection{Unterschied zwischen gregorianischem und julianischem Kalender}
-	Das Weihnachtsfest wird in beiden Religionen am 25. Dezember gefeiert. Die russisch-orthodoxe Kirche hat allerdings die 1852 durchgeführte Kalenderreform durch Papst Gregor nicht angewandt. Der deshalb dort noch genutzte Vorgängerkalender, der julianische Kalender, stimmt allerdings mit dem heutigen Kalender bis auf die Schaltjahresregelung komplett überein.
+	Das Weihnachtsfest wird in beiden Religionen am 25. Dezember gefeiert. Die russisch-orthodoxe Kirche hat allerdings die 1582 durchgeführte Kalenderreform durch Papst Gregor nicht angewandt. Der deshalb dort noch genutzte Vorgängerkalender, der julianische Kalender, stimmt allerdings mit dem heutigen Kalender bis auf die Schaltjahresregelung komplett überein.
 
-	Im julianischen sowie dem gregorianischen Kalender ist jedes durch 4 restlos teilbare Jahr ein Schaltjahr. Allerdings sind im gregorianischem Kalender Jahre, die durch 100 restlos teilbar sind, ausgenommen und damit regelmäßige Jahre. Von dieser Ausnahmeregelung sind wiederum Jahre, die restlos durch 400 teilbar sind ausgenommen und damit doch wieder Schaltjahre. Daher driften die beiden Kalendersysteme alle hundert Jahre um durchschnittlich 0.75 Tage auseinander.
+	Im julianischen sowie dem gregorianischen Kalender ist jedes durch 4 restlos teilbare Jahr ein Schaltjahr. Allerdings sind im gregorianischem Kalender Jahre, die durch 100 restlos teilbar sind, ausgenommen und damit regelmäßige Jahre. Von dieser Ausnahmeregelung sind wiederum Jahre, die restlos durch 400 teilbar sind, ausgenommen und damit doch wieder Schaltjahre. Daher driften die beiden Kalendersysteme alle hundert Jahre um durchschnittlich 0.75 Tage auseinander.
 
-	Ferner wurden im Reformjahr 1852 10 Kalendertage übersprungen.
+	Ferner wurden im Reformjahr 1582 10 Kalendertage übersprungen.
 
 	Aus beiden Bedingungen lässt sich folgende Formel\footnote{\url{https://de.wikipedia.org/wiki/Umrechnung_zwischen_julianischem_und_gregorianischem_Kalender}} für den Abstand in Tagen zwischen gregorianischem und julianischem Kalender ableiten, wobei x die Jahreszahl ist. Außerdem sind  alle Divisionen ganzzahlig auszuführen! 
 
 	\[f(x)=x\div{}100-x\div{}400-2\]
 
-	Für die Monate Januar und Februar gelten beim zutreffenden Schaltjahrkriterium Ausnahmen. Diese sind jedoch für diese Aufgabe irrelevant da nur Daten aus Dezember (Weihnachten), März und April (Ostern) umgerechnet werden müssen.
+	Für die Monate Januar und Februar gelten beim zutreffenden Schaltjahrkriterium Ausnahmen. Diese sind jedoch für diese Aufgabe irrelevant, da nur Daten aus Dezember (Weihnachten), März und April (Ostern) umgerechnet werden müssen.
 
 \clearpage
 \subsection {Lösungsidee}
-	Mit diesen Sachinformationen lässt sich das Problem in recht wenig Zeit mithilfe von Brute Force lösen: Von 2016 an berechnet man alle katholischen Osterfeste und orthodoxen Weihnachtsfeste, bis ein Ergebnisse sich gleicht. Die orthodoxen Weihnachtsfeste müssen vorher in den gregorianischen Kalender umgerechnet werden. 
+	Mit diesen Sachinformationen lässt sich das Problem in recht kruzer Rechenzeit mithilfe von Brute Force lösen: Von 2016 an berechnet man alle katholischen Osterfeste und orthodoxen Weihnachtsfeste, bis ein Ergebnis sich gleicht. Die orthodoxen Weihnachtsfeste müssen vorher in den gregorianischen Kalender umgerechnet werden. 
 
 	Des Weiteren muss das katholische Osterfest mit dem orthodoxen Weihnachtsfest des Vorjahres verglichen werden, da das orthodoxe Weihnachtsfest  durch die Kalenderumrechnung in das Folgejahr hineinrutscht.
 
 	Das zweite Problem lässt sich dementsprechend finden, indem man alle orthodoxen Osterfeste berechnet, bis das Ergebnis dem 25. Dezember des gregorianischen Kalenders entspricht.
 
 \subsection {Überlegungen zur Laufzeit}
-Die Programmlaufzeit steigt mit der Entfernung zwischen Startjahr der Berechnung und dem Ergebnisjahr linear. Die Berechnung des Osterdatums, die für jedes Jahr durchgeführt wird hat einen konstante Laufzeit. Die Laufzeit der Umrechnung steigt ca. alle 3000 Jahre, da wenn der Unterschied zwischen den Kalendersystemen um einen Monat gestiegen ist ein weiterer Schleifendurchlauf nötig wird. Da dieser Zuwachs jedoch minimal ist, kann dies vernachlässigt werden.
+Die Programmlaufzeit steigt mit der Entfernung zwischen Startjahr der Berechnung und dem Ergebnisjahr linear. Die Berechnung des Osterdatums, die für jedes Jahr durchgeführt wird, hat eine konstante Laufzeit. Die Laufzeit der Umrechnung steigt ca. alle 3000 Jahre, da dann der Unterschied zwischen den Kalendersystemen um einen Monat gestiegen ist ein weiterer Schleifendurchlauf nötig wird. Da dieser Zuwachs jedoch minimal ist, kann dies vernachlässigt werden.
 
 Die Laufzeit ist also, wenn n die Differenz zwischen Startjahr und Eregbnisjahr darstellt:
 
 \[\mathcal O(n)\]
 
-Daraus folgt, dass die erste Teilaufgabe dreimal so schnell ist wie die zweite.
+Daraus folgt, dass die Berechnung der ersten Teilaufgabe dreimal so schnell ist wie die Berechnung der zweiten.
